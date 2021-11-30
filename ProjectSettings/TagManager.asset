@@ -12,6 +12,8 @@ TagManager:
   - Server
   - SpecialDoor
   - Computer
+  - Death
+  - KillBot
   layers:
   - Default
   - TransparentFX

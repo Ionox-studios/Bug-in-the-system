@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     public float BulletForce = 20f;
     public GameObject bullet;
     public GameObject killbot;
+    public playerHealth ph;
     public void Awake()
     {
         Cursor.SetCursor(cursorArrow, Vector2.zero, CursorMode.Auto);
@@ -121,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Bernie Longneck Headbutt")| animator.GetCurrentAnimatorStateInfo(0).IsName("GSS") | animator.GetCurrentAnimatorStateInfo(0).IsName("GSL"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Bernie Longneck Headbutt")| animator.GetCurrentAnimatorStateInfo(0).IsName("GSS") | animator.GetCurrentAnimatorStateInfo(0).IsName("GSL")|| ph.dying)
         {
         }
         else

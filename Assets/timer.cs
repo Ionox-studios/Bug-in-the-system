@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video; 
 public class timer : MonoBehaviour
 {
     public Text timerText;
@@ -11,6 +12,8 @@ public class timer : MonoBehaviour
     public gameManager gm;
     public bool finalBattle = false;
     public float finalFightTime = 30f;
+    public VideoPlayer vp;
+    public RawImage rm;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +30,10 @@ public class timer : MonoBehaviour
         timerText.text = minutes + ":" + seconds;
         if (t <= 0 && !gm.finalBattle)
         {
-            ph.damage();
+            rm.enabled = true;
+            vp.Play();
+            gm.EndGame();
+            //ph.damage();
         }
         if (t <= 0 && gm.finalBattle)
         {

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Video;
+using UnityEngine.UI;
 public class gameManager : MonoBehaviour
 {
     bool gameHasEnded = false;
@@ -20,6 +21,7 @@ public class gameManager : MonoBehaviour
     public bool computer5 = false;
     public bool computer6 = false;
     public bool finalBattle = false;
+    public RawImage vp;
 
     Vector2 movement;
    
@@ -33,6 +35,7 @@ public class gameManager : MonoBehaviour
         playerInputActions = new Buginthesystem();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Quit.performed += Quit_performed;
+        vp.enabled = false;
     }
 
     private void Quit_performed(InputAction.CallbackContext context)
@@ -48,6 +51,7 @@ public class gameManager : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("GAME OVER");
+            
             Invoke("Restart", restartDelay);
         }    
     }
@@ -60,6 +64,8 @@ public class gameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         loopNumber += 1;
+        vp.enabled = false;
+       
     }
     void win()
     {

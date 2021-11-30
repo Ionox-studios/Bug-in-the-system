@@ -29,6 +29,13 @@ public class bulletHitPlayer : MonoBehaviour
             Destroy(gameObject);
 
         }
+        else if (collision.transform.tag == "Killbot")//or tag
+        {
+            collision.GetComponent<enemySpotPlayerKillBot>().Hit();
+
+
+        }
+
         else
         {
             Destroy(gameObject);

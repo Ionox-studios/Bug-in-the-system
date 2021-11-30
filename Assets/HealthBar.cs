@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
 
     public void setHealth(float health)
     {
-        Debug.Log(health);
+
         if (health == 3f)
         {
             heart1.enabled = true;

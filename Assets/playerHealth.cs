@@ -14,6 +14,7 @@ public class playerHealth : MonoBehaviour
     public SpriteRenderer gunSprite;
     public HealthBar healthbar;
     public PlayerMovement pm;
+    public bool dying=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +85,7 @@ public class playerHealth : MonoBehaviour
                     tmp.a = 255f;
                     m_SpriteRenderer.color = tmp;
                     anim.Play("DeathAnimationMC");
+                    dying = true;
                 }
                 if (pm.hasGun)
                 {
@@ -91,6 +93,7 @@ public class playerHealth : MonoBehaviour
                     tmp.a = 255f;
                     gunSprite.color = tmp;
                     gunAnim.Play("Bernie Death");
+                    dying = true;
                 }
                 FindObjectOfType<gameManager>().EndGame();
             }

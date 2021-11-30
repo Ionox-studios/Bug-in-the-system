@@ -36,6 +36,7 @@ public class enemySpotPlayerKillBot : MonoBehaviour
     public Transform bulletEmmiter;
     private float attackTime;
     public float pauseTime;
+    public AudioSource ting;
     // Start is called before the first frame update
     void Start()
     {
@@ -165,6 +166,10 @@ public class enemySpotPlayerKillBot : MonoBehaviour
         float angle2 = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         Quaternion safeRotation = Quaternion.Euler(new Vector3(0, 0, angle2-90f));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, safeRotation, 300f * Time.deltaTime);
+    }
+    public void Hit()
+    {
+        ting.Play();
     }
 }
     

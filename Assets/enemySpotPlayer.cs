@@ -21,6 +21,7 @@ public class enemySpotPlayer : MonoBehaviour
     public bool dying;
     public Transform BulletEmitter;
     public GameObject item;
+    public AudioSource die;
 
     // Walk speed that can be set in Inspector
     [SerializeField]
@@ -144,6 +145,7 @@ public class enemySpotPlayer : MonoBehaviour
     }
     public void Die()
     {
+        die.Play();
         dying = true;
         animator.SetTrigger("Die");
         Invoke("dropGun", .7f);
