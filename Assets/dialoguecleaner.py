@@ -5,7 +5,7 @@ Created on Fri Nov 27 14:59:38 2020
 @author: Conor
 """
 import os
-directory = r'C:\Users\Conor\Downloads\New Converted Voice Lines\alltxt'
+directory = r'C:\Users\Conor\Downloads\After Server-20211201T073342Z-001\After Server\tst'
 file_list =os.listdir(directory)
 for file_name in file_list:
     if 'out.txt' in file_name:

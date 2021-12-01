@@ -42,7 +42,7 @@ public class SpecialdoorControllerCDC : MonoBehaviour
     public void CloseDoor()
     {
         open.Play();
-        Invoke("addCollider", 1.08f);
+        Invoke("addCollider", .01f);
         anim.SetBool("DoorOpen", false);
 
 

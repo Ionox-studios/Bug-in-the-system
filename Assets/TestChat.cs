@@ -12,8 +12,8 @@ public class TestChat : MonoBehaviour
     public bool diskDialogue = false;
     public int ln;
     public GameObject player;
-    public bool serverNoDisk=true;
-    public bool serverWithDisk = true;
+    public bool serverNoDisk=false;
+    public bool serverWithDisk = false;
     public bool enterThefinal = false;
     public bool enterThefinalFinal = false;
     public bool computer1 = false;
@@ -22,7 +22,8 @@ public class TestChat : MonoBehaviour
     public bool computer4 = false;
     public bool computer5 = false;
     public bool computer6 = false;
-    public bool wc = true;
+    public bool wc = false;
+    public bool afterServer = false;
     public gameManager gm;
     void Awake()
     {
@@ -46,6 +47,15 @@ public class TestChat : MonoBehaviour
         {
             enterThefinalFinal = true;
         }
+        if (gameManager.PlayerActivateServer == true)
+        {
+            afterServer = true;
+        }
+
+
+
+
+
         ln = gameManager.loopNumber;
 
     }
@@ -98,6 +108,13 @@ public class TestChat : MonoBehaviour
         {
             converseSecondEnd();
             enterThefinalFinal = true;
+
+        }
+
+        if (!afterServer && gameManager.PlayerActivateServer)
+        {
+            converseAfterServer();
+            afterServer = true;
 
         }
         if (!computer1 && gm.computer1)
@@ -380,7 +397,7 @@ public class TestChat : MonoBehaviour
 
         dialogTexts.Add(new DialogData("/sound:DRR_1_L3/Well, off and on. You need to be in the room for this to work./wait:0.25/", "Dr. Faust"));
 
-        dialogTexts.Add(new DialogData("/sound:BRR_1_L/Oh, well that's not so hard./wait:0.25/", "Bernie"));
+        dialogTexts.Add(new DialogData("/sound:BRR_1_L4/Oh, well that's not so hard./wait:0.25/", "Bernie"));
 
         dialogTexts.Add(new DialogData("/sound:DRR_1_L5/There's um... Two Killbot 9ks... To keep you company?/wait:0.25/", "Dr. Faust"));
 
@@ -395,6 +412,35 @@ public class TestChat : MonoBehaviour
         dialogManager.Show(dialogTexts);
 
     }
+
+    private void converseAfterServer()
+    {
+        OnTurnOn();
+
+        var dialogTexts = new List<DialogData>();
+        dialogTexts.Add(new DialogData("/sound:DAS_L1/Alright, now the final step./wait:0.25/", "Dr. Faust"));
+
+        dialogTexts.Add(new DialogData("/sound:BAS_L2/What? I thought I was done./wait:0.25/", "Bernie"));
+
+        dialogTexts.Add(new DialogData("/sound:DAS_L3/No! You need to get to the reactor in the northwest. A door there should open now that we're crashing the system./wait:0.25/", "Dr. Faust"));
+
+        dialogTexts.Add(new DialogData("/sound:BAS_L4/And then what?/wait:0.25/", "Bernie"));
+
+        dialogTexts.Add(new DialogData("/sound:DAS_L5/And then I'll tell you when you get there./wait:0.25/", "Dr. Faust"));
+
+        dialogTexts.Add(new DialogData("/sound:BAS_L6/Fine.../wait:0.25/", "Bernie"));
+
+
+        DialogData dialogData = new DialogData("", "Bernie");
+
+        dialogData.Callback = () => OnTurnOff();
+
+        dialogTexts.Add(dialogData);
+
+        dialogManager.Show(dialogTexts);
+
+    }
+
     private void converseSecondEnd()
     {
         OnTurnOn();
@@ -527,7 +573,7 @@ public class TestChat : MonoBehaviour
         var dialogTexts = new List<DialogData>();
         dialogTexts.Add(new DialogData("/sound:CCC5_L1/Wait, did you know that this room leads to a bottomless pit?/wait:0.25/", "Computer"));
 
-        dialogTexts.Add(new DialogData("/sound:BCC5_L21/Actually, it leads to the weird Pachyderm reactor. I've cleaned it before./wait:0.25/", "Bernie"));
+        dialogTexts.Add(new DialogData("/sound:BCC5_L2/Actually, it leads to the weird Pachyderm reactor. I've cleaned it before./wait:0.25/", "Bernie"));
 
         dialogTexts.Add(new DialogData("/sound:CCC5_L3/Then you're aware of it's current fragility?!/wait:0.25/", "Computer"));
 
