@@ -33,6 +33,12 @@ public class bulletHit : MonoBehaviour
 
 
         }
+        else if (collision.transform.name == "finalRoomTrigger")//or tag
+        { 
+        }
+        else if (collision.transform.tag == "Door")//or tag
+        {
+        }
         else
         {
             Destroy(gameObject);

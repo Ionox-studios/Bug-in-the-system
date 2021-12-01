@@ -19,7 +19,7 @@ public class BeyBladeAttack : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Beyblade Attack") && !isOn)
         {
-            rb.AddForce(new Vector2(5f, 5f), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(7f, 7f), ForceMode2D.Impulse);
             Debug.Log("Beblade YEet");
             isOn = true;   
         }
