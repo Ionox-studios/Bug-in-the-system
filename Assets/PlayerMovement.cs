@@ -246,6 +246,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 gm.computer6 = true;
             }
+            if( interactable.gameObject.name == "Watercooler")
+            {
+                if (gm.waterGuyConvo == false)
+                {
+                    gameManager.WCGuyConvos = gameManager.WCGuyConvos + 1;
+                    gm.waterGuyConvo = true;
+                }
+            }
 
         }
     }

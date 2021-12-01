@@ -14,6 +14,7 @@ public class gameManager : MonoBehaviour
     static public bool inServerRoomwithDisk= false;
     static public bool firstEndConvo = false;
     static public bool secondEndConvo = false;
+    static public int WCGuyConvos = 0;
     public bool computer1 = false;
     public bool computer2 = false;
     public bool computer3 = false;
@@ -21,6 +22,7 @@ public class gameManager : MonoBehaviour
     public bool computer5 = false;
     public bool computer6 = false;
     public bool finalBattle = false;
+    public bool waterGuyConvo = false;
     public RawImage vp;
 
     Vector2 movement;
