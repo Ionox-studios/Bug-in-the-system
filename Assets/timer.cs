@@ -14,6 +14,8 @@ public class timer : MonoBehaviour
     public float finalFightTime = 30f;
     public VideoPlayer vp;
     public RawImage rm;
+    public AudioSource tick;
+    public bool tickPlaying = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,11 @@ public class timer : MonoBehaviour
             vp.Play();
             gm.EndGame();
             //ph.damage();
+        }
+        if(t< 9f && !gm.finalBattle && !tickPlaying )
+        {
+            tickPlaying = true;
+            tick.Play();
         }
         if (t <= 0 && gm.finalBattle)
         {
